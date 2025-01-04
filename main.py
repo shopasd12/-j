@@ -1,4 +1,4 @@
-import os 
+import os
 import discord
 from discord.ui import Button, View, Modal, TextInput
 from discord.ext import commands, tasks
@@ -7,17 +7,15 @@ import random
 
 from myserver import server_on
 
-
-GUILD_ID = 1320391859322753075 
-CHANNEL_ID = 1320391859754897484  
-WEBHOOK_URL = 'https://discord.com/api/webhooks/1324846311526109285/i9iwmQ6SBJxSx7V5ewfVYbXnbGI_i_qAc_bBD6aZFsX8jCE_M0RyLj3JNrYHCibrLQ-f'  
+GUILD_ID = 1320391859322753075
+CHANNEL_ID = 1320391859754897484
+WEBHOOK_URL = 'https://discord.com/api/webhooks/1324846311526109285/i9iwmQ6SBJxSx7V5ewfVYbXnbGI_i_qAc_bBD6aZFsX8jCE_M0RyLj3JNrYHCibrLQ-f'
 
 # สร้างบอท
 intents = discord.Intents.default()
 intents.message_content = True
 
 bot = commands.Bot(command_prefix="!", intents=intents)
-
 
 streaming_status = [
     "Playing a game 🎮",
@@ -59,6 +57,7 @@ async def on_ready():
 class TicketView(View):
     def __init__(self):
         super().__init__()
+
         self.open_ticket_button = Button(label="🤍เปิดตั๋วคุยแอดมิน❤", style=discord.ButtonStyle.green)
         self.open_ticket_button.callback = self.open_ticket
         self.add_item(self.open_ticket_button)
